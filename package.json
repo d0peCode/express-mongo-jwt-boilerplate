@@ -29,6 +29,7 @@
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
+    "ddos": "^0.2.1",
     "dotenv": "^5.0.1",
     "express": "^4.16.2",
     "express-validation": "^1.0.2",

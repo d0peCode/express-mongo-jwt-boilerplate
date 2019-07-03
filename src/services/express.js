@@ -10,6 +10,8 @@ const errorHandler = require('../middlewares/error-handler')
 const apiRouter = require('../routes/index')
 const passport = require('passport')
 const passportJwt = require('../services/passport')
+const Ddos = require('ddos')
+const ddos = new Ddos()
 
 const app = express()
 app.use(bodyParser.json())
@@ -25,6 +27,7 @@ passport.use('jwt', passportJwt.jwt)
 app.use('/api', apiRouter)
 app.use(errorHandler.handleNotFound)
 app.use(errorHandler.handleError)
+app.use(ddos.express)
 
 exports.start = () => {
   app.listen(config.port, (err) => {
